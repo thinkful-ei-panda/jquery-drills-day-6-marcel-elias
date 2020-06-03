@@ -1,15 +1,16 @@
 'use strict';
 
-function handleSubmissions() {
+$(function handleSubmissions() {
   $('#number-chooser').submit(event => {
     event.preventDefault();
 
     $('.js-results').empty();
 
-    const numberChoice = $(event.currentTarget).find('input[name="number-choice"]').val();
+    const numberChoice = parseInt($(event.currentTarget).find('input[name="number-choice"]').val());
     const results = [];
 
-    for (let i=0;i<=numberChoice;i++) {
+    for (let i = 1; i <= numberChoice; i++ ) {
+
       if (numberChoice % 15 === 0) {
         results.push($('<div class="fizz-buzz-item fizzbuzz"><span>fizzbuzz</span></div>'));
       }
@@ -23,14 +24,14 @@ function handleSubmissions() {
       }
 
       else {
-        results.push($(`<div clas="fizz-buzz-item"><span>${i}</span></div>`));
+        results.push($(`<div class="fizz-buzz-item"><span>${i}</span></div>`));
       }
     }
     
     $('.js-results').append(results);
 
-  })
+  });
 
 
 
-}
+});
